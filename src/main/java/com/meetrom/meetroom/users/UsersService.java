@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @Service
 
@@ -12,6 +13,10 @@ public class UsersService {
 
     @Autowired
     UsersRepository usersRepository;
+
+    public List<Users> getUsersAll() {
+        return usersRepository.findAll();
+    }
 
     public Users addUser(Users users) {
         users.setTimeCreated(new Timestamp(new Date().getTime()));

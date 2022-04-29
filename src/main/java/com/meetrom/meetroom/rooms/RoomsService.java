@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Service
 
@@ -12,6 +13,10 @@ public class RoomsService {
 
     @Autowired
     RoomsRepository roomsRepository;
+
+    public List<Rooms> getRoomsAll() {
+        return roomsRepository.findAll();
+    }
 
     public Rooms addRoom(Rooms rooms) {
         rooms.setTimeCreated(new Timestamp(new Date().getTime()));
